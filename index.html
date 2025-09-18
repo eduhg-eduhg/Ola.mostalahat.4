@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مصطلحات الأولى ثانوي إعدادي</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            direction: rtl;
+            text-align: right;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #95a5a6;
+        }
+        .term-item {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        .term-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .term-header {
+            background-color: #007A23;
+            color: black;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .term-header:hover {
+            background-color: #00DA3E;
+        }
+        .term-name {
+            font-size: 18px;
+        }
+        .arrow {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+        .term-content {
+            padding: 15px;
+            background-color: #f8f9fa;
+            display: none;
+            line-height: 1.6;
+            font-size: 16px;
+            color: #333;
+        }
+        .term-content.active {
+            display: block;
+        }
+        .term-item.active .arrow {
+            transform: rotate(180deg);
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Arial', 'Tahoma', sans-serif;
+        }
+        .no-results {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">مفاهيم و مصطلحات الدرس</h1>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="ابحث عن مصطلح..." onkeyup="searchTerms()">
+        </div>
+
+        <div id="terms-container">
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الحضارة</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    هي كل ما يخلفه شعب ما في مختلف الميادين السياسية والاقتصادية والاجتماعية والفكرية، وهي مرتبطة بالاستقرار، وتحدد مختلف طرائق العيش والقيم والمعتقدات والتقنيات، وكذا التنظيم الاقتصادي والاجتماعي لشعب ما.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الرافدان</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    نهري دجلة والفرات.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الشعوب السامية</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    شعوب تتكون من أجناس يعود أصلها إلى سام بن نوح.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">دول المدن</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    دول مستقلة تحكم نفسها بنفسها.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الإمبراطورية</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    مجموعة من الدول تخضع لحكم ملك واحد يسمى الإمبراطور.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الشرائع</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    مفرد شريعة، أي قانون.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">الكتابة المسمارية</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    من اللاتينية cuneus، أي مسمار: كتابة تتكون من رموز على شكل مسامير.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">قانون حمورابي</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    مجموعة من النصوص والقواعد المنظمة للعلاقات بين سكان بلاد الرافدين فرادى وجماعات.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">حمورابي</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    من ملوك بابل، عاش في الألفية الثالثة قبل الميلاد.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">المن</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    المن الواحد يساوي 500 غرام.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">أورنامو</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    من حكام السلالة الثالثة حكم مدينة أور ودون قوانين دولته.
+                </div>
+            </div>
+
+            <div class="term-item">
+                <div class="term-header" onclick="toggleTerm(this)">
+                    <span class="term-name">أوركاغينا</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="term-content">
+                    حكم مدينة لكش حوالي 2900 ق م وسجل القوانين.
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="no-results" style="display: none;">
+            لا توجد نتائج للبحث الذي أدخلته
+        </div>
+    </div>
+
+    <script>
+        function toggleTerm(element) {
+            const termItem = element.parentElement;
+            const content = element.nextElementSibling;
+            const arrow = element.querySelector('.arrow');
+            
+            // إغلاق جميع المصطلحات الأخرى
+            const allTermItems = document.querySelectorAll('.term-item');
+            allTermItems.forEach(item => {
+                if (item !== termItem) {
+                    item.classList.remove('active');
+                    const otherContent = item.querySelector('.term-content');
+                    if (otherContent) {
+                        otherContent.classList.remove('active');
+                    }
+                }
+            });
+            
+            // تبديل حالة المصطلح الحالي
+            termItem.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+
+        function searchTerms() {
+            const searchInput = document.querySelector('.search-input');
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const termItems = document.querySelectorAll('.term-item');
+            const noResults = document.getElementById('no-results');
+            let hasResults = false;
+
+            termItems.forEach(item => {
+                const termName = item.querySelector('.term-name').textContent.toLowerCase();
+                const termContent = item.querySelector('.term-content').textContent.toLowerCase();
+                
+                if (termName.includes(searchTerm) || termContent.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    item.style.display = 'none';
+                    // إغلاق المصطلح إذا كان مفتوحا
+                    item.classList.remove('active');
+                    item.querySelector('.term-content').classList.remove('active');
+                }
+            });
+
+            // إظهار أو إخفاء رسالة "لا توجد نتائج"
+            if (hasResults || searchTerm === '') {
+                noResults.style.display = 'none';
+            } else {
+                noResults.style.display = 'block';
+            }
+
+            // إظهار جميع المصطلحات إذا كان حقل البحث فارغا
+            if (searchTerm === '') {
+                termItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+            }
+        }
+
+        // إضافة تأثير الدخول التدريجي للعناصر
+        document.addEventListener('DOMContentLoaded', function() {
+            const termItems = document.querySelectorAll('.term-item');
+            termItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
+                
